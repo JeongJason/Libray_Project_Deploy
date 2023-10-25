@@ -44,7 +44,7 @@ public class UserController {
     @GetMapping("/security/register")
     public String registerForm(Model model){
         model.addAttribute("userDTO", new UserDTO());
-        return "/security/signup";
+        return "security/signup";
     }
 
     @PostMapping("/security/register")
