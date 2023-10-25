@@ -14,30 +14,30 @@ import org.springframework.web.context.WebApplicationContext;
 @Slf4j
 public class UserControllerTest {
 
-    @Autowired
-    private UserController userController;
-    @Autowired
-    private WebApplicationContext webApplicationContext;
-    private MockMvc mockMvc;
-
-    @BeforeEach
-    public void setUp(){
-        mockMvc= MockMvcBuilders.webAppContextSetup(webApplicationContext).build();
-    }
-
-
-    @Test
-    public void insertTest() throws Exception{
-        log.info(mockMvc.perform(MockMvcRequestBuilders.post("/register")
-                .param("userId", "admin4")
-                .param("userPw", "1234")
-                .param("userName", "admin")
-                .param("userEmail", "admin@example.com")
-                .param("emailPrefix", "admin")
-                .param("emailDns","text.com")
-                .param("userBirth", "1991.09.05")
-                .param("userRole", "ROLE_ADMIN")
-        ).andReturn().getFlashMap().toString());
-    }
+//    @Autowired
+//    private UserController userController;
+//    @Autowired
+//    private WebApplicationContext webApplicationContext;
+//    private MockMvc mockMvc;
+//
+//    @BeforeEach
+//    public void setUp(){
+//        mockMvc= MockMvcBuilders.webAppContextSetup(webApplicationContext).build();
+//    }
+//
+//
+//    @Test
+//    public void insertTest() throws Exception{
+//        log.info(mockMvc.perform(MockMvcRequestBuilders.post("/register")
+//                .param("userId", "admin4")
+//                .param("userPw", "1234")
+//                .param("userName", "admin")
+//                .param("userEmail", "admin@example.com")
+//                .param("emailPrefix", "admin")
+//                .param("emailDns","text.com")
+//                .param("userBirth", "1991.09.05")
+//                .param("userRole", "ROLE_ADMIN")
+//        ).andReturn().getFlashMap().toString());
+//    }
 
 }

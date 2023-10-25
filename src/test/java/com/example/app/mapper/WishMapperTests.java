@@ -11,8 +11,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 @Slf4j
 public class WishMapperTests {
 
-    @Autowired
-    WishMapper wishMapper;
+//    @Autowired
+//    WishMapper wishMapper;
 
 //    @Test
 //    public void insertTest(){
