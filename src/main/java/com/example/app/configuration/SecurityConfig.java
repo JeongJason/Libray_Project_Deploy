@@ -75,7 +75,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .failureHandler(failureHandler)
                 .usernameParameter("userId")
                 .passwordParameter("userPw")
-                .defaultSuccessUrl("/main")
+                
                 .permitAll()
                 .and()
 

@@ -18,7 +18,7 @@ import java.util.List;
 
 @Controller
 @RequiredArgsConstructor
-@RequestMapping("/books/*")
+@RequestMapping("/books")
 public class BookController {
     private final BookService bookService;
 
@@ -35,7 +35,7 @@ public class BookController {
 
 
     //    도서 목록
-    @GetMapping("1-1search")
+    @GetMapping("/1-1search")
     public void showList(Search search, Criteria criteria, Model model){
 
 //        Criteria criteriaBook = new Criteria(criteria.getPageNum(), 5);

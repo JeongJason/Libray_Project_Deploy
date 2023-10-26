@@ -30,6 +30,8 @@ public class CustomAuthenticationSuccessHandler implements AuthenticationSuccess
             request.getSession().setAttribute("userId", userId);
             request.getSession().setAttribute("userRole", userRole);
         });
+
+        response.sendRedirect("main");
     }
 }
 
