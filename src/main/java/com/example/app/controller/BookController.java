@@ -70,20 +70,20 @@ public class BookController {
         bookService.write(bookDTO);
         redirectAttributes.addFlashAttribute("isbn", bookDTO.getIsbn());
 //        추가후 새로고침을해도 redirect로 인해 list로 가더라도 계속 추가되지않는다.
-        return new RedirectView("/book/list");
+        return new RedirectView("book/list");
     }
     //    도서 삭제
     @GetMapping("remove")
     public RedirectView remove(String isbn){
         bookService.remove(isbn);
-        return new RedirectView("/book/list");
+        return new RedirectView("book/list");
     }
     //    도서 수정
     @PostMapping("modify")
     public RedirectView modify(BookDTO bookDTO, RedirectAttributes redirectAttributes){
         bookService.modify(bookDTO);
         redirectAttributes.addAttribute("isbn", bookDTO.getIsbn());
-        return new RedirectView("/book/read");
+        return new RedirectView("book/read");
     }
 
 }

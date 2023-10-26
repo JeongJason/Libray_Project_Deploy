@@ -59,7 +59,7 @@ public class UserController {
         System.out.println(userDTO);
         redirectAttributes.addFlashAttribute("uId", userDTO.getUserId());
 //        추가후 새로고침을해도 redirect로 인해 list로 가더라도 계속 추가되지않는다.
-        return new RedirectView("/security/login");
+        return new RedirectView("security/login");
     }
 
     @PostMapping("/mypage/modify")
@@ -74,12 +74,12 @@ public class UserController {
         userService.modify(userDTO);
         principalDetails.setDto(userDTO);
         redirectAttributes.addAttribute("userId", userDTO.getUserId());
-        return new RedirectView("/mypage/5-1myInfo");
+        return new RedirectView("mypage/5-1myInfo");
     }
 
     @GetMapping("/mypage/changepw")
     public String goChangePW(Model model){
-        return "/mypage/5-1-2passwordChange";
+        return "mypage/5-1-2passwordChange";
     }
 
 
@@ -105,7 +105,7 @@ public class UserController {
         } else {
             model.addAttribute("errorMessage", "현재 비밀번호가 올바르지 않습니다.");
         }
-        return new RedirectView("/main"); // 성공 또는 에러 메시지와 함께 동일한 템플릿으로 돌아갑니다.
+        return new RedirectView("main"); // 성공 또는 에러 메시지와 함께 동일한 템플릿으로 돌아갑니다.
     }
 
     @GetMapping("/security/checkpw")
@@ -123,10 +123,10 @@ public class UserController {
         if (passwordEncoder.matches(currentPassword,storedPassword)) {
             model.addAttribute("userDTO",userDTO);
             model.addAttribute("successMessage", "비밀번호 인증에 성공하셨습니다.");
-            return "/mypage/5-1myInfo";
+            return "mypage/5-1myInfo";
         } else {
             model.addAttribute("errorMessage", "현재 비밀번호가 올바르지 않습니다.");
-            return "/security/checkpw";
+            return "security/checkpw";
 
         }
     }

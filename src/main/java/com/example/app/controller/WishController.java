@@ -56,7 +56,7 @@ public class WishController {
         wishService.write(wishDTO);
         System.out.println(wishDTO.toString());
         redirectAttributes.addFlashAttribute("wishId", wishDTO.getWishId());
-        return new RedirectView("/books/wish");    /*희망도서신청내역으로*/
+        return new RedirectView("books/wish");    /*희망도서신청내역으로*/
     }
 //
 //    // 도서 신청 내역 삭제
