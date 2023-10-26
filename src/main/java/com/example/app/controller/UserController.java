@@ -74,7 +74,7 @@ public class UserController {
         userService.modify(userDTO);
         principalDetails.setDto(userDTO);
         redirectAttributes.addAttribute("userId", userDTO.getUserId());
-        return new RedirectView("mypage/5-1myInfo");
+        return new RedirectView("5-1myInfo");
     }
 
     @GetMapping("/mypage/changepw")
@@ -126,7 +126,7 @@ public class UserController {
             return "mypage/5-1myInfo";
         } else {
             model.addAttribute("errorMessage", "현재 비밀번호가 올바르지 않습니다.");
-            return "security/checkpw";
+            return "checkpw";
 
         }
     }
