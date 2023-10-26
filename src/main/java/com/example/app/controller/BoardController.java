@@ -76,7 +76,7 @@ public class BoardController {
         boardDTO.setUserId(username);
         boardService.write(boardDTO);
         redirectAttributes.addFlashAttribute("anId", boardDTO.getAnId());
-        return new RedirectView("boards/notice");
+        return new RedirectView("notice");
     }
 
     // 게시글 삭제
@@ -84,7 +84,7 @@ public class BoardController {
     @GetMapping("/remove")
     public RedirectView remove(Long anId){
         boardService.delete(anId);
-        return new RedirectView("boards/notice");
+        return new RedirectView("notice");
     }
     // 게시글 수정
     @PostMapping("/3-5modify")
@@ -93,6 +93,6 @@ public class BoardController {
         redirectAttributes.addAttribute("anId", boardDTO.getAnId());
         redirectAttributes.addFlashAttribute(criteria);
         redirectAttributes.addFlashAttribute(search);
-        return  new RedirectView("boards/3-4post");
+        return  new RedirectView("3-4post");
     }
 }

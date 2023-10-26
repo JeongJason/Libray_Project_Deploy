@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security/">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -188,7 +188,7 @@
             <div class="form">
               <form th:action="@{/reviews/write}" method="post" th:object="${reviewDTO}" action="/review/register" id="registForm">  <!-- 보기 -->
                 <div class="fields">
-                  <div class="field">
+<!--                  <div class="field">-->
 <!--                    <h4>작성자</h4>-->
 <!--                    <input name="writer" placeholder="Writer" type="text" th:field="*{userId}"/>-->
 <!--                  </div>-->
