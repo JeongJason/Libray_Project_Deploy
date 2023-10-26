@@ -47,7 +47,7 @@ public class WishController {
     @GetMapping("/books/wish")
     public String getWishForm(Model model) {
         model.addAttribute("wishDTO", new WishDTO());
-        return "1-5hopeadd";
+        return "books/1-5hopeadd";
     }
     @PostMapping("/books/wish")
     public RedirectView write(WishDTO wishDTO, RedirectAttributes redirectAttributes,Principal principal){
@@ -56,7 +56,7 @@ public class WishController {
         wishService.write(wishDTO);
         System.out.println(wishDTO.toString());
         redirectAttributes.addFlashAttribute("wishId", wishDTO.getWishId());
-        return new RedirectView("books/wish");    /*희망도서신청내역으로*/
+        return new RedirectView("wish");    /*희망도서신청내역으로*/
     }
 //
 //    // 도서 신청 내역 삭제

@@ -70,7 +70,7 @@ public class ReviewController {
         reviewDTO.setUserId(username);
         reviewService.write(reviewDTO);
         redirectAttributes.addFlashAttribute("revId", reviewDTO.getRevId());
-        return new RedirectView("reviews/3-2review");
+        return new RedirectView("3-2review");
     }
 
     // 게시글 삭제
@@ -86,6 +86,6 @@ public class ReviewController {
         redirectAttributes.addAttribute("revId", reviewDTO.getRevId());
         redirectAttributes.addFlashAttribute(criteria);
         redirectAttributes.addFlashAttribute(search);
-        return  new RedirectView("reviews/3-7post");
+        return  new RedirectView("3-7post");
     }
 }
