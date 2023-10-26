@@ -47,7 +47,7 @@ public class WishController {
     @GetMapping("/books/wish")
     public String getWishForm(Model model) {
         model.addAttribute("wishDTO", new WishDTO());
-        return "books/1-5hopeadd";
+        return "1-5hopeadd";
     }
     @PostMapping("/books/wish")
     public RedirectView write(WishDTO wishDTO, RedirectAttributes redirectAttributes,Principal principal){
