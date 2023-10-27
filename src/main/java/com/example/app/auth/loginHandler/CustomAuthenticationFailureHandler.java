@@ -17,6 +17,8 @@ public class CustomAuthenticationFailureHandler implements AuthenticationFailure
                                         AuthenticationException exception) throws IOException, ServletException {
         System.out.println("로그인 실패! MSG : " + exception.getMessage());
 
-        response.sendRedirect(request.getContextPath()+"/login?error="+exception.getMessage());
+        response.sendRedirect("login");
+
+//        response.sendRedirect(request.getContextPath()+"/login?error="+exception.getMessage());
     }
 }
