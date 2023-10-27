@@ -105,7 +105,7 @@ public class UserController {
         } else {
             model.addAttribute("errorMessage", "현재 비밀번호가 올바르지 않습니다.");
         }
-        return new RedirectView("main"); // 성공 또는 에러 메시지와 함께 동일한 템플릿으로 돌아갑니다.
+        return new RedirectView("/main"); // 성공 또는 에러 메시지와 함께 동일한 템플릿으로 돌아갑니다.
     }
 
     @GetMapping("/security/checkpw")
