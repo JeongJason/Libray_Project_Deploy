@@ -19,16 +19,9 @@ public class CustomAuthenticationFailureHandler implements AuthenticationFailure
                                         AuthenticationException exception) throws IOException, ServletException {
         System.out.println("로그인 실패! MSG : " + exception.getMessage());
 
-        String loginFailMsg = null;
+        request.getSession().setAttribute("Msg", "아이디 또는 비밀번호가 틀립니다.");
 
-        if (exception instanceof AuthenticationServiceException) {
-            loginFailMsg = "존재하지 않는 사용자입니다.";
-        } else if(exception instanceof BadCredentialsException) {
-            loginFailMsg = "아이디 또는 비밀번호가 틀립니다.";
-        }
-
-        request.setAttribute("loginFailMsg", loginFailMsg);
-        request.getRequestDispatcher(DEFAULT_FAILURE_URL).forward(request,response);
+        response.sendRedirect(request.getContextPath() + "security/login");
 
     }
 }
