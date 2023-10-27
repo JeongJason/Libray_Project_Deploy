@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import org.springframework.web.servlet.view.RedirectView;
 
 import java.security.Principal;
 import java.util.List;
@@ -22,12 +23,11 @@ public class LendController {
 
 
     @PostMapping("/books/lend")
-    public String postLend(LendDTO lendDTO, RedirectAttributes redirectAttributes,Principal principal){
+    public String postLend(LendDTO lendDTO,Principal principal){
         String username = principal.getName();
         lendDTO.setUserId(username);
         lendService.write(lendDTO);
-    //        redirectAttributes.addFlashAttribute("message", "Book has been successfully lent.");
-        return "redirect: books/1-1search";
+        return "books/1-1search";
     }
 
     @GetMapping("/mypage/mylist")
