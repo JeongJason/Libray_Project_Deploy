@@ -13,7 +13,7 @@ import java.util.List;
 public interface ReviewMapper {
 
     // 리뷰 조회
-    public ReviewDTO select(Long revId);
+    public ReviewDTO selectreview(Long revId);
     // 리뷰 목록
     public List<ReviewDTO> selectAll(@Param("cri")Criteria criteria, @Param("search")Search search);
     // 리뷰 추가
