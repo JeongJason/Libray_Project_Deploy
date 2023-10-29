@@ -2,19 +2,25 @@ package com.example.app.controller;
 
 import com.example.app.domain.dto.BookDTO;
 import com.example.app.domain.dto.Search;
+import com.example.app.domain.dto.UserDTO;
 import com.example.app.domain.paging.Criteria;
 import com.example.app.domain.paging.PageMakerDTO;
 import com.example.app.service.BookService;
+import com.example.app.service.UserService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
 @Controller
 @RequiredArgsConstructor
 public class AdminController {
+    private final UserService userService;
     private final BookService bookService;
 
     // 관리자 페이지 도서 목록
@@ -40,5 +46,30 @@ public class AdminController {
         Long totalPostCount = bookService.getListCount(search);
         model.addAttribute("totalPostCount", totalPostCount);
         model.addAttribute("pageMaker", pageMaker);
+    }
+
+    @GetMapping("/getUserInfo")
+    public ResponseEntity<List<UserDTO>> getUserInfo(@RequestParam("userId") String userId) {
+        List<UserDTO> userDTO = userService.getUserDetail(userId);
+        if (userDTO != null) {
+            return new ResponseEntity<>(userDTO, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
+
+    @GetMapping("admin/adminsetting")
+    public String goAdminSetting(Search search, Criteria criteria, Model model){
+        List<UserDTO> list = userService.getAllUser(criteria, search);
+        model.addAttribute("listUser",list);
+        Long total = userService.getTotal(search);
+
+        PageMakerDTO pageMaker = new PageMakerDTO(criteria, total);
+
+        Long totalPostCount = userService.getTotal(search);
+        model.addAttribute("totalPostCount", totalPostCount);
+        model.addAttribute("pageMaker", pageMaker);
+        System.out.println("listUser:" + list);
+        return "admin/5-3adminsetting";
     }
 }

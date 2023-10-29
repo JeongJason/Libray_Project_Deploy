@@ -31,30 +31,30 @@ public class UserController {
     private final UserService userService;
     private final PasswordEncoder passwordEncoder;
 
-    @GetMapping("/getUserInfo")
-    public ResponseEntity<List<UserDTO>> getUserInfo(@RequestParam("userId") String userId) {
-        List<UserDTO> userDTO = userService.getUserDetail(userId);
-        if (userDTO != null) {
-            return new ResponseEntity<>(userDTO, HttpStatus.OK);
-        } else {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
-    }
-
-    @GetMapping("admin/adminsetting")
-    public String goAdminSetting(Search search, Criteria criteria, Model model){
-        List<UserDTO> list = userService.getAllUser(criteria, search);
-        model.addAttribute("listUser",list);
-        Long total = userService.getTotal(search);
-
-        PageMakerDTO pageMaker = new PageMakerDTO(criteria, total);
-
-        Long totalPostCount = userService.getTotal(search);
-        model.addAttribute("totalPostCount", totalPostCount);
-        model.addAttribute("pageMaker", pageMaker);
-        System.out.println("listUser:" + list);
-        return "admin/5-3adminsetting";
-    }
+//    @GetMapping("/getUserInfo")
+//    public ResponseEntity<List<UserDTO>> getUserInfo(@RequestParam("userId") String userId) {
+//        List<UserDTO> userDTO = userService.getUserDetail(userId);
+//        if (userDTO != null) {
+//            return new ResponseEntity<>(userDTO, HttpStatus.OK);
+//        } else {
+//            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+//        }
+//    }
+//
+//    @GetMapping("admin/adminsetting")
+//    public String goAdminSetting(Search search, Criteria criteria, Model model){
+//        List<UserDTO> list = userService.getAllUser(criteria, search);
+//        model.addAttribute("listUser",list);
+//        Long total = userService.getTotal(search);
+//
+//        PageMakerDTO pageMaker = new PageMakerDTO(criteria, total);
+//
+//        Long totalPostCount = userService.getTotal(search);
+//        model.addAttribute("totalPostCount", totalPostCount);
+//        model.addAttribute("pageMaker", pageMaker);
+//        System.out.println("listUser:" + list);
+//        return "admin/5-3adminsetting";
+//    }
 
     @GetMapping(value={"/mypage/read","/mypage/5-1myInfo"})
     public UserDTO getUser(Authentication authentication,Principal principal, Model model){
