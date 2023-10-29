@@ -22,18 +22,26 @@ public class UserService {
         return SecurityContextHolder.getContext().getAuthentication().getAuthorities()
                 .stream().anyMatch(a -> a.getAuthority().equals("ROLE_ADMIN"));
     }
-    public Long getTotal(Search search){
-        return userMapper.selectAllCount(search);
-    }
 
     // 회원 조회
     public UserDTO getUser(String userId) {
         return userMapper.findByUid(userId);
     }
+    public List<UserDTO> getUserDetail(String userId) {
+        return userMapper.findByUide(userId);
+    }
 
     // 회원 목록 조회
-    public List<UserDTO> getAllUser(Criteria criteria, Search search){
+    public List<UserDTO> getAllUser(Criteria criteria, Search search) {
+        // 권한 확인 로직 (여기서는 예시로 ROLE_ADMIN을 가진 사용자만 조회 가능하도록)
+//        if (!isAdmin()) {
+//            throw new AccessDeniedException("권한이 없습니다.");
+//        }
         return userMapper.findAll(criteria, search);
+    }
+    //    게시글 전체 개수 조회
+    public Long getTotal(Search search){
+        return userMapper.selectAllCount(search);
     }
 
     // 회원 등록
@@ -44,6 +52,12 @@ public class UserService {
     // 회원 삭제
     public void delete(String uId) {
         userMapper.delete(uId);
+    }
+
+    public void deleteUsers(List<String> userIds) {
+        for (String userId : userIds) {
+            userMapper.delete(userId);
+        }
     }
 
     // 회원 정보 수정
@@ -61,5 +75,4 @@ public class UserService {
     public void updatePW(String userId,String userPw){
         userMapper.updatePW(userId, userPw);
     }
-
 }

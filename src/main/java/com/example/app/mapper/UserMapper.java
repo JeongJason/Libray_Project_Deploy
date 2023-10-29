@@ -18,8 +18,13 @@ public interface UserMapper {
     // 회원 조회 및 아이디중복체크
     public UserDTO findByUid(String userId);
 
+    public List<UserDTO> findByUide(String userId);
+
     // 회원 목록 조회
-    public List<UserDTO> findAll(@Param("cri") Criteria criteria, @Param("search")Search search);
+    public List<UserDTO> findAll(@Param("cri") Criteria criteria, @Param("search") Search search);
+
+    // 전체 게시글 갯수
+    public Long selectAllCount(@Param("search")Search search);
 
     // 회원 등록
     public void register(UserDTO userDTO);
@@ -34,8 +39,6 @@ public interface UserMapper {
     public String findPW(String userId);
     // 비밀번호 변경
     public void updatePW(String userId, String userPw);
-
-    public Long selectAllCount(@Param("search") Search search);
 
 
 }
