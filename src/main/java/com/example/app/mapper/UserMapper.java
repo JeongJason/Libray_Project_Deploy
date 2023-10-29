@@ -3,6 +3,7 @@ package com.example.app.mapper;
 import com.example.app.domain.dto.Search;
 import com.example.app.domain.dto.UserDTO;
 import com.example.app.domain.paging.Criteria;
+import com.example.app.domain.paging.Criteriauser;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +22,7 @@ public interface UserMapper {
     public List<UserDTO> findByUide(String userId);
 
     // 회원 목록 조회
-    public List<UserDTO> findAll(@Param("cri") Criteria criteria, @Param("search") Search search);
+    public List<UserDTO> findAll(@Param("cri") Criteriauser criteria, @Param("search") Search search);
 
     // 전체 게시글 갯수
     public Long selectAllCount(@Param("search")Search search);

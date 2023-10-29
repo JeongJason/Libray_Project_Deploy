@@ -4,7 +4,9 @@ import com.example.app.domain.dto.BookDTO;
 import com.example.app.domain.dto.Search;
 import com.example.app.domain.dto.UserDTO;
 import com.example.app.domain.paging.Criteria;
+import com.example.app.domain.paging.Criteriauser;
 import com.example.app.domain.paging.PageMakerDTO;
+import com.example.app.domain.paging.PageMakerDTOuser;
 import com.example.app.service.BookService;
 import com.example.app.service.UserService;
 import lombok.RequiredArgsConstructor;
@@ -59,12 +61,12 @@ public class AdminController {
     }
 
     @GetMapping("admin/adminsetting")
-    public String goAdminSetting(Search search, Criteria criteria, Model model){
+    public String goAdminSetting(Search search, Criteriauser criteria, Model model){
         List<UserDTO> list = userService.getAllUser(criteria, search);
         model.addAttribute("listUser",list);
         Long total = userService.getTotal(search);
 
-        PageMakerDTO pageMaker = new PageMakerDTO(criteria, total);
+        PageMakerDTOuser pageMaker = new PageMakerDTOuser(criteria, total);
 
         Long totalPostCount = userService.getTotal(search);
         model.addAttribute("totalPostCount", totalPostCount);
