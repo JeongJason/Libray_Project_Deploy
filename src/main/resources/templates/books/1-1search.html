@@ -360,7 +360,7 @@
                             <td class="lend_btn">
                                 <form th:action="@{/books/lend}" method="post" >
                                     <input type="hidden" name="isbn" th:value="*{isbn}">
-                                <button class="lendbtn" type="submit" onclick="return showConfirmation(this);">대여</button>
+                                    <button class="lendbtn" type="submit" onclick="return showConfirmation(this);">대여</button>
                                 </form>
                             </td>
                             <td class="reserve_btn">
@@ -383,7 +383,7 @@
                             <!-- 페이지 번호 버튼 -->
                             <li th:each="num : ${#numbers.sequence(pageMaker.startPage, pageMaker.endPage)}"
                                 class="pageInfo_btn"
-                                th:style="${num == pageMaker.criteria.pageNum} ? 'font-weight: bold;' : ''">
+                                th:classappend="${num == pageMaker.criteria.pageNum} ? 'active' : ''">
                                 <a class="paginate_button"
                                    th:href="@{1-1search(pageNum=${num}, amount=${pageMaker.criteria.amount}, type=${search.type}, keyword=${search.keyword})}"
                                    th:text="${num}"></a>
@@ -422,8 +422,8 @@
         </div>
         <div class="footer_bottom">
             <div class="fb_info">
-                <p> 대구 수성구 123 (비대면 도서관) 전화 053-123-3456 팩스 053-123-3457<br />Copyright ⓒ 비대면 도서관. All rights
-                    reserved.</p>
+                <p> 대구 수성구 달구벌대로 2451 (범어동, 범어도서관) 전화 053-668-1600 팩스 053-668-1609<br/>Copyright ⓒ 수성구립 범어도서관. All
+                    rights reserved.</p>
             </div>
         </div>
     </footer>
@@ -454,7 +454,6 @@
         });
     });
     function showConfirmation(button) {
-
         var bookTitle = button.closest("tr").querySelector(".tdt").textContent; // Get the bookTitle
         return confirm("'" + bookTitle + "'를 대여하시겠습니까?");
     }
