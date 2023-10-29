@@ -33,14 +33,13 @@
                     </svg><span sec:authorize="isAuthenticated()" th:text="${#authentication.name}" ></span>님 환영합니다</a>
                     <a sec:authorize="isAuthenticated()" th:href="@{/security/logout}">로그아웃</a>
                     <a sec:authorize="hasRole('ADMIN')" th:href="@{/admin/adminsetting}" >관리자페이지</a>
-
                 </div>
             </div>
         </div>
         <div class="header_bottom">
             <div class="hb_info">
                 <div class="gnb">
-                    <a th:href="@{/main}"><img class="BeomeoLogoB1" src="/img/beomeo_logo.png"></a>
+                    <a th:href="@{/main}"><img class="Logo" src="/img/logo03.png"></a>
                     <!--new start 10월 13일 수정-->
                     <ul class="gnb_menu">
                         <li><a href="/books/1-1search">자료검색</a>
@@ -302,20 +301,20 @@
         <div class="main_top">
             <!-- 이미지 슬라이드 -->
             <div class="mt_slides">
-                <img alt="image1" src="/img/section0-bg-01.jpg">
+                <img alt="image1" src="/img/university-library-4825366_1920.jpg">
             </div>
             <div class="mt_slides">
-                <img alt="image2" src="/img/section0-bg-02.jpg">
+                <img alt="image2" src="/img/columns-5135499_1920.jpg">
             </div>
             <div class="mt_slides">
-                <img alt="image3" src="/img/section0-bg-03.jpg">
+                <img alt="image3" src="/img/books-5433432_1920.jpg">
             </div>
         </div>
         <div class="mt_info">
             <!-- 배너글씨 -->
             <div class="mt_text_box">
                 <div class="c_box1">책으로의 이끌림, 꿈을 향한 두드림</div>
-                <div class="c_box2">수성구립 범어도서관</div>
+                <div class="c_box2">비대면 도서관</div>
             </div>
             <!-- 검색창 -->
             <!--            <div class="mt_search_area">-->
@@ -388,8 +387,7 @@
         </div>
         <div class="footer_bottom">
             <div class="fb_info">
-                <p> 대구 수성구 달구벌대로 2451 (범어동, 범어도서관) 전화 053-668-1600 팩스 053-668-1609<br/>Copyright ⓒ 수성구립 범어도서관. All
-                    rights
+                <p> 대구 수성구 123 (비대면 도서관) 전화 053-123-3456 팩스 053-123-3457<br />Copyright ⓒ 비대면 도서관. All rights
                     reserved.</p>
             </div>
         </div>
