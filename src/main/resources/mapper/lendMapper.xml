@@ -4,35 +4,35 @@
     <select id="selectByLendSeq" resultType="LendDTO">
         SELECT L.*, B.BOOK_TITLE, B.AUTHOR, B.PUBLISHER, B.PUB_YEAR
         FROM tbl_lend L
-        JOIN TBL_BOOK B ON L.ISBN= B.ISBN
+        JOIN tbl_book B ON L.ISBN= B.ISBN
         WHERE L.LEND_SEQ = #{lendSeq}
     </select>
 
     <select id="selectByUserId" parameterType="string" resultType="LendDTO">
         SELECT L.*, B.BOOK_TITLE, B.AUTHOR, B.PUBLISHER, B.PUB_YEAR
         FROM tbl_lend L
-        JOIN TBL_BOOK B ON L.ISBN= B.ISBN
+        JOIN tbl_book B ON L.ISBN= B.ISBN
         WHERE L.USER_ID = #{userId}
     </select>
 
     <select id="selectByIsbn" parameterType="string" resultType="LendDTO">
         SELECT L.*, B.BOOK_TITLE, B.AUTHOR, B.PUBLISHER, B.PUB_YEAR
         FROM tbl_lend L
-        JOIN TBL_BOOK B ON L.ISBN= B.ISBN
+        JOIN tbl_book B ON L.ISBN= B.ISBN
         WHERE L.ISBN = #{isbn}
     </select>
 
     <select id="selectOverDue" resultType="LendDTO">
         SELECT L.*, B.BOOK_TITLE, B.AUTHOR, B.PUBLISHER, B.PUB_YEAR
         FROM tbl_lend L
-        JOIN TBL_BOOK B ON L.ISBN= B.ISBN
+        JOIN tbl_book B ON L.ISBN= B.ISBN
         WHERE NOW() > DUE_DATE;
     </select>
 
     <select id="selectAll" resultType="LendDTO">
         SELECT L.*, B.BOOK_TITLE, B.AUTHOR, B.PUBLISHER, B.PUB_YEAR
         FROM tbl_lend L
-        JOIN TBL_BOOK B ON L.ISBN= B.ISBN
+        JOIN tbl_book B ON L.ISBN= B.ISBN
     </select>
     
     <insert id="insert">

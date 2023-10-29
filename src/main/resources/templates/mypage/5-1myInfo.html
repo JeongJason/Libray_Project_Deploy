@@ -13,7 +13,6 @@
   <link rel="stylesheet" href="/css/hopebook.css">
   <link rel="stylesheet" href="/css/myinfo.css">
   <link rel="stylesheet" href="/css/footer.css">
-  <link rel="stylesheet" href="/css/sidebar.css">
 
 </head>
 
@@ -367,7 +366,6 @@
                   <button type="submit" class="signup_submit">수정하기</button>
                 </div>
               </form>
-
               <div>
                 <form th:action="@{/mypage/remove}" method="get" th:object="${userDTO}">
                   <h2 class="signup_title">회원 탈퇴를 원하실경우 아래 버튼을 눌러주세요</h2>
@@ -375,7 +373,6 @@
                   <button type="submit" class="signup_submit" onclick="">회원탈퇴</button>
                 </form>
               </div>
-
               <!--new end-->
             </div>
           </div>

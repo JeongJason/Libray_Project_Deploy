@@ -44,7 +44,7 @@ public class UserController {
         }
     }
 
-    @GetMapping("admin/adminsetting")
+    @GetMapping("/admin/adminsetting")
     public String goAdminSetting(Search search, Criteria criteria, Model model){
         List<UserDTO> list = userService.getAllUser(criteria, search);
         model.addAttribute("listUser",list);
