@@ -67,7 +67,7 @@ public class BoardController {
     @GetMapping("/write")
     public String showwrite(Model model, Principal principal){
         model.addAttribute(new BoardDTO());
-        return "/boards/3-3write";
+        return "boards/3-3write";
     }
 
     @PostMapping("/write")

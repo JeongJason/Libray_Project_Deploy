@@ -370,22 +370,22 @@
                     </th:block>
                     </tbody>
                 </table>
-                <div id="board_paging" class="dataTables_paginate" th:object="${criteriabook}">
+                <div id="board_paging" class="dataTables_paginate" th:object="${criteria}">
                     <div class="pageInfo_area">
                         <ul id="pageInfo" class="pageInfo">
                             <!-- 이전페이지 버튼 -->
                             <li class="pageInfo_btn previous" th:if="${pageMaker.prev}">
                                 <a class="paginate_button"
-                                   th:href="@{1-1search(pageNum=${pageMaker.startPage-1}, amount=${pageMaker.criteriabook.amount}, type=${search.type}, keyword=${search.keyword})}">
+                                   th:href="@{1-1search(pageNum=${pageMaker.startPage-1}, amount=${pageMaker.criteria.amount}, type=${search.type}, keyword=${search.keyword})}">
                                     < </a>
                             </li>
 
                             <!-- 페이지 번호 버튼 -->
                             <li th:each="num : ${#numbers.sequence(pageMaker.startPage, pageMaker.endPage)}"
                                 class="pageInfo_btn"
-                                th:classappend="${num == pageMaker.criteriabook.pageNum} ? 'active' : ''">
+                                th:classappend="${num == pageMaker.criteria.pageNum} ? 'active' : ''">
                                 <a class="paginate_button"
-                                   th:href="@{1-1search(pageNum=${num}, amount=${pageMaker.criteriabook.amount}, type=${search.type}, keyword=${search.keyword})}"
+                                   th:href="@{1-1search(pageNum=${num}, amount=${pageMaker.criteria.amount}, type=${search.type}, keyword=${search.keyword})}"
                                    th:text="${num}"></a>
                             </li>
 

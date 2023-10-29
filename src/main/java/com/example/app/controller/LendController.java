@@ -30,7 +30,7 @@ public class LendController {
         lendDTO.setUserId(username);
         lendService.write(lendDTO);
     //        redirectAttributes.addFlashAttribute("message", "Book has been successfully lent.");
-        return "redirect:books/1-1search";
+        return "redirect:1-1search";
     }
 
     @GetMapping("/mypage/mylist")
