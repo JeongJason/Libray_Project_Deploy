@@ -24,7 +24,7 @@
     </sql>
 
     <select id="select" resultType="boardDTO">
-        SELECT * FROM tbl_announcement WHERE AN_ID = #{anId}
+        SELECT * FROM `TBL_ANNOUNCEMENT` WHERE AN_ID = #{anId}
     </select>
 
 

@@ -27,7 +27,7 @@
     </sql>
 
     <select id="select" resultType="reviewDTO">
-        SELECT * FROM tbl_review WHERE REV_ID = #{revId}
+        SELECT * FROM `TBL_REVIEW` WHERE REV_ID = #{revId}
     </select>
 
 
