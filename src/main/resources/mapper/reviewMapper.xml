@@ -26,7 +26,7 @@
         </if>
     </sql>
 
-    <select id="selectreview" resultType="reviewDTO">
+    <select id="select" resultType="reviewDTO">
         SELECT * FROM TBL_REVIEW WHERE REV_ID = #{revId}
     </select>
 
