@@ -326,22 +326,20 @@
         <div class="signup_top">
           <div class="signup_form">
             <div class="container">
-
               <form th:action="@{/mypage/modify}" method="post" th:object="${userDTO}">
                 <h2 class="signup_title"> 회원 정보 수정을 위해 입력해주세요.</h2>
                 <div class="signup_info_form" >* 아이디<br>
                   <input class="signup_id" type="text" name=userId th:value="*{userId}" readonly>
                   <span id="availabilityMessage"></span>
                   <label class="signup_info_form">* 이름<br>
-                    <input class="signup_info" type="text" name="userName" th:value="*{userName}" readonly><br><br>
+                    <input class="signup_id" type="text" name="userName" th:value="*{userName}" readonly><br><br>
                   </label>
-                  <div class="signup_info_form">* 생년월일</div>
-                  <div class="birth_form">
-                    <input class="signup_info" type="text" name="userBirth" th:value="*{userBirth}" readonly><br><br>
-                  </div>
+                  <label class="signup_info_form">* 생년월일<br>
+                    <input class="signup_id" type="text" name="userBirth" th:value="*{userBirth}" readonly><br><br>
+                  </label>
                   <br>
                   <div class="signup_info_form">* 이메일<br>
-                    <div class="signup_info_form2">
+                      <div class="signup_info_form2">
                       <div class="singup_email_form">
                         <input class="signup_email" type="text" name="emailPrefix" th:value="*{emailPrefix}" > @ <input class="signup_email_prefix" type="text"
                                                                                                                         name="emailDns" th:value="*{emailDns}" >
