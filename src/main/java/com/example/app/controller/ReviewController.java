@@ -1,11 +1,9 @@
 package com.example.app.controller;
 
-import com.example.app.domain.dto.BoardDTO;
 import com.example.app.domain.dto.ReviewDTO;
 import com.example.app.domain.dto.Search;
 import com.example.app.domain.paging.Criteria;
 import com.example.app.domain.paging.PageMakerDTO;
-import com.example.app.service.BoardService;
 import com.example.app.service.ReviewService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -77,7 +75,7 @@ public class ReviewController {
     @GetMapping("/remove")
     public RedirectView remove(Long revId){
         reviewService.delete(revId);
-        return new RedirectView("reviews/3-2review");
+        return new RedirectView("/reviews/3-2review");
     }
     // 게시글 수정
     @PostMapping("/3-8modify")

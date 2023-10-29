@@ -1,24 +1,22 @@
 package com.example.app.controller;
 
 import com.example.app.auth.PrincipalDetails;
-import com.example.app.domain.dto.BookDTO;
 import com.example.app.domain.dto.Search;
 import com.example.app.domain.dto.UserDTO;
 import com.example.app.domain.paging.Criteria;
 import com.example.app.domain.paging.PageMakerDTO;
 import com.example.app.service.UserService;
 import lombok.RequiredArgsConstructor;
-import org.apache.catalina.User;
-import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.servlet.view.RedirectView;
 
@@ -31,30 +29,35 @@ public class UserController {
     private final UserService userService;
     private final PasswordEncoder passwordEncoder;
 
-//    @GetMapping("/getUserInfo")
-//    public ResponseEntity<List<UserDTO>> getUserInfo(@RequestParam("userId") String userId) {
-//        List<UserDTO> userDTO = userService.getUserDetail(userId);
-//        if (userDTO != null) {
-//            return new ResponseEntity<>(userDTO, HttpStatus.OK);
-//        } else {
-//            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-//        }
+//    @GetMapping("/all")
+//    public List<UserDTO> getAllUsers(){
+//        return userService.getAllUser();
 //    }
-//
-//    @GetMapping("admin/adminsetting")
-//    public String goAdminSetting(Search search, Criteria criteria, Model model){
-//        List<UserDTO> list = userService.getAllUser(criteria, search);
-//        model.addAttribute("listUser",list);
-//        Long total = userService.getTotal(search);
-//
-//        PageMakerDTO pageMaker = new PageMakerDTO(criteria, total);
-//
-//        Long totalPostCount = userService.getTotal(search);
-//        model.addAttribute("totalPostCount", totalPostCount);
-//        model.addAttribute("pageMaker", pageMaker);
-//        System.out.println("listUser:" + list);
-//        return "admin/5-3adminsetting";
-//    }
+
+    @GetMapping("/getUserInfo")
+    public ResponseEntity<List<UserDTO>> getUserInfo(@RequestParam("userId") String userId) {
+        List<UserDTO> userDTO = userService.getUserDetail(userId);
+        if (userDTO != null) {
+            return new ResponseEntity<>(userDTO, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
+
+    @GetMapping("admin/adminsetting")
+    public String goAdminSetting(Search search, Criteria criteria, Model model){
+        List<UserDTO> list = userService.getAllUser(criteria, search);
+        model.addAttribute("listUser",list);
+        Long total = userService.getTotal(search);
+
+        PageMakerDTO pageMaker = new PageMakerDTO(criteria, total);
+
+        Long totalPostCount = userService.getTotal(search);
+        model.addAttribute("totalPostCount", totalPostCount);
+        model.addAttribute("pageMaker", pageMaker);
+        System.out.println("listUser:" + list);
+        return "admin/5-3adminsetting";
+    }
 
     @GetMapping(value={"/mypage/read","/mypage/5-1myInfo"})
     public UserDTO getUser(Authentication authentication,Principal principal, Model model){
@@ -155,8 +158,6 @@ public class UserController {
 
         }
     }
-
-
 
     @GetMapping("/mypage/remove")
     public RedirectView remove(Principal principal){
