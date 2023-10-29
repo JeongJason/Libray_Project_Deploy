@@ -22,7 +22,7 @@ import java.util.List;
 @Controller
 @RequiredArgsConstructor
 public class AdminController {
-    private final UserService userService;
+//    private final UserService userService;
     private final BookService bookService;
 
     // 관리자 페이지 도서 목록
@@ -50,28 +50,28 @@ public class AdminController {
         model.addAttribute("pageMaker", pageMaker);
     }
 
-    @GetMapping("/getUserInfo")
-    public ResponseEntity<List<UserDTO>> getUserInfo(@RequestParam("userId") String userId) {
-        List<UserDTO> userDTO = userService.getUserDetail(userId);
-        if (userDTO != null) {
-            return new ResponseEntity<>(userDTO, HttpStatus.OK);
-        } else {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
-    }
+//    @GetMapping("/getUserInfo")
+//    public ResponseEntity<List<UserDTO>> getUserInfo(@RequestParam("userId") String userId) {
+//        List<UserDTO> userDTO = userService.getUserDetail(userId);
+//        if (userDTO != null) {
+//            return new ResponseEntity<>(userDTO, HttpStatus.OK);
+//        } else {
+//            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+//        }
+//    }
 
-    @GetMapping("admin/adminsetting")
-    public String goAdminSetting(Search search, Criteriauser criteria, Model model){
-        List<UserDTO> list = userService.getAllUser(criteria, search);
-        model.addAttribute("listUser",list);
-        Long total = userService.getTotal(search);
-
-        PageMakerDTOuser pageMaker = new PageMakerDTOuser(criteria, total);
-
-        Long totalPostCount = userService.getTotal(search);
-        model.addAttribute("totalPostCount", totalPostCount);
-        model.addAttribute("pageMaker", pageMaker);
-        System.out.println("listUser:" + list);
-        return "admin/5-3adminsetting";
-    }
+//    @GetMapping("admin/adminsetting")
+//    public String goAdminSetting(Search search, Criteriauser criteria, Model model){
+//        List<UserDTO> list = userService.getAllUser(criteria, search);
+//        model.addAttribute("listUser",list);
+//        Long total = userService.getTotal(search);
+//
+//        PageMakerDTOuser pageMaker = new PageMakerDTOuser(criteria, total);
+//
+//        Long totalPostCount = userService.getTotal(search);
+//        model.addAttribute("totalPostCount", totalPostCount);
+//        model.addAttribute("pageMaker", pageMaker);
+//        System.out.println("listUser:" + list);
+//        return "admin/5-3adminsetting";
+//    }
 }
