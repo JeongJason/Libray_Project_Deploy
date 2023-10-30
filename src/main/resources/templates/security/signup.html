@@ -302,13 +302,17 @@
               <form th:action="@{/security/register}" method="post" th:object="${userDTO}">
               <h2 class="signup_title">회원가입을 위해 정보를 입력해주세요.</h2>
               <label class="signup_info_form" >* 아이디<br>
-                <input class="signup_id" name="userId" type="text" th:field="*{userId}"/><br><br>
+                <input class="signup_id" name="userId" type="text" th:field="*{userId}"/>
+                <span id="availabilityMessage"></span>
               </label>
               <label class="signup_info_form" >* 비밀번호<br>
-                <input class="signup_pwd" type="password" name="userPw" th:field="*{userPw}"/><br><br>
+                <input class="signup_pwd" type="password" name="userPw" th:field="*{userPw}"/>
+                <img class="input__icon" src="/img/eye.svg" alt="Toggle Password">
               </label>
               <label class="signup_info_form" >* 비밀번호 확인<br>
-                <input class="signup_pwd-confirm" type="password"><br><br>
+                <input class="signup_pwd-confirm" type="password">
+                <img class="input__icon" src="/img/eye.svg" alt="Toggle Password">
+                <span id="passwordMatchMessage" class="error-message"></span>
               </label>
               <label class="signup_info_form" >* 이름<br>
                 <input id="signup_info" type="text" name="userName" th:field="*{userName}"/><br><br>
@@ -376,5 +380,8 @@
     </footer>
   </div>
   <script type="text/javascript" src="/js/email.js"></script>
+  <script type="text/javascript" src="/js/signup_check_id.js"></script>
+  <script type="text/javascript" src="/js/signup_check_pwd.js"></script>
+  <script type="text/javascript" src="/js/signup_pwd_eye.js"></script>
 </body>
 </html>
