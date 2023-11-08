@@ -98,15 +98,6 @@ https://shields.io/
 
 <br/>
 
-## ▶️ END POINT 
-
-|END POINT|METHOD|DESCRIPTION|
-|------|---|---|
-|/book/list|GET| 모든 도서 목록 표시|
-|/book/write|POST|신규 도서 등|
-|/book/read|GET|도서 1건 보기|
-<br/>
-
 ## ▶️ 참고 서비스 및 사이트
 
 ##### - 참고 서비스
