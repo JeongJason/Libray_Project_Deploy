@@ -322,8 +322,8 @@
                                 <!-- 게시판 메인 부분 -->
                                 <div class="doc-body">
                                     <h3>지도</h3>
-                                    <div class="map1"
-                                         style="height: 500px; background: url(./css/img/그림1.png); background-size: cover;border: 1px solid gray; border-radius: 15px;">
+                                    <div class="map"
+                                         style="height: 500px;border: 1px solid gray; border-radius: 15px;">
                                     </div>
                                     <div class="info_box" style="border: 1px solid gray; border-radius: 15px; margin-top: 5px;">
                                         <!-- 10월 28일 수정 -->
@@ -398,6 +398,55 @@
           </div>
       </footer>
   </div>
+   <script>
+        function initMap() {
+
+            // 맵 스타일 객체
+            var styleArray = [
+                {
+                    featureType: 'all',
+                    stylers: [
+                        {saturation: -80 }
+                    ]
+                },{
+                    featureType: 'road.arterial',
+                    elementType: 'geometry',
+                    stylers: [
+                        {hue: '#00ffee'},
+                        {saturation: 50}
+                    ]
+                },{
+                    featureType: 'poi.business',
+                    elementType: 'labels',
+                    stylers: [
+                        {visibility: 'off'}
+                    ]
+                }
+            ];
+
+            // 위치 정보 변수
+            var my_position = {lat: 35.837847, lng:128.710704};
+
+
+
+            // 맵 객체를 생성하고 id=‘map’에 지도 표시
+			var map = new google.maps.Map(document.getElementById('map'), {
+	        	center: my_position,
+	        	scrollwheel: false,
+	        	zoom: 17,
+                styles: styleArray
+			});
+            // 마커 객체 생성
+            var marker = new google.maps.Marker({
+                map: map,
+                position: my_position,
+                title: '여기가 내 위치입니다!'
+            });
+
+        }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDT0h6j1fd6Gmn2ZoIoDYWF6-YCRmvBiHM&callback=initMap" 
+    async defer></script>  
 </body>
 
 </html>
